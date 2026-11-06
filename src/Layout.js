@@ -173,7 +173,7 @@ class Layout {
 	 */
 	imageUrl(url, plane) {
 		let path = url.substring(0, url.lastIndexOf('/') + 1);
-		return path + plane + '.jpg';
+		return path + plane + '.' + (this.suffix || 'jpg');
 	}
 
 	/**

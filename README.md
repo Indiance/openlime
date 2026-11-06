@@ -219,6 +219,8 @@ const iiifLayer = new OpenLIME.LayerImage({
 
 ## Development Setup
 
+For local `.ptm` and HSH `.rti` datasets, see [the RTI conversion guide](utils/RTI-CONVERSION.md).
+
 ### Installing npm
 
 #### Arch Linux / Manjaro

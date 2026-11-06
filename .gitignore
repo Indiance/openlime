@@ -13,3 +13,10 @@ scratch
 jsconfig.json
 .env 
 __pycache__
+
+# Local RTI/PTM test data and converted output (large; regenerate with utils/convert_*.py)
+*.ptm
+*.rti
+RTI Test/
+dist/assets/rti/converted/
+.DS_Store

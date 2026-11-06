@@ -26,44 +26,17 @@
         // Create an OpenLIME canvas into openlime
         const lime = new OpenLIME.Viewer('.openlime');
 
-        // Create 4 RTI layers and add them to the canvans
-        // A RTI layer has many channels. In this example the 4 layers store 
-        // channels in 4 different ways: image, deepzoom, tarzoom and itarzoom 
+        // Convert with utils/convert_ptm.py (PTM) or utils/convert_hsh.py (HSH .rti),
+        // then open a dataset with ?dataset=<folder name>, e.g. ?dataset=sccoin00301B-PTM18.
+        const dataset = new URLSearchParams(location.search).get('dataset') || 'missal_2500';
         const layer0 = new OpenLIME.Layer({
-            label: 'coin-image ptm',
+            label: dataset,
             layout: 'image',
             type: 'rti',
-            url: '../../assets/rti/ptm/info.json',
+            url: `../../assets/rti/converted/${encodeURIComponent(dataset)}/info.json`,
             normals: false
         });
-        lime.addLayer('coin0', layer0);
-
-        const layer1 = new OpenLIME.Layer({
-            label: 'coin-deepzoom hsh',
-            layout: 'deepzoom',
-            type: 'rti',
-            url: '../../assets/rti/hsh/info.json',
-            normals: false
-        });
-        lime.addLayer('coin1', layer1);
-
-        const layer2 = new OpenLIME.Layer({
-            label: 'coin-tarzoom bln',
-            layout: 'tarzoom',
-            type: 'rti',
-            url: '../../assets/rti/bln/info.json',
-            normals: false
-        });
-        lime.addLayer('coin2', layer2);
-
-        const layer3 = new OpenLIME.Layer({
-            label: 'coin-itarzoom ybln',
-            layout: 'itarzoom',
-            type: 'rti',
-            url: '../../assets/rti/ybln/info.json',
-            normals: false
-        });
-        lime.addLayer('coin3', layer3);
+        lime.addLayer('rti', layer0);
 
         // Fetch a skin (visual elements for the web page)
         OpenLIME.Skin.setUrl('../../skin/skin.svg');

@@ -152,7 +152,7 @@ class LayoutTiles extends Layout {
 	imageUrl(url, plane) {
 		let path = url.substring(0, url.lastIndexOf('/') + 1);
 		switch (this.type) {
-			case 'image': return path + plane + '.jpg'; break;
+			case 'image': return path + plane + '.' + (this.suffix || 'jpg'); break;
 			case 'google': return path + plane; break;
 			case 'deepzoom': return path + plane + '.dzi'; break;
 			case 'tarzoom': return path + plane + '.tzi'; break;
