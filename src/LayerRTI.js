@@ -103,7 +103,7 @@ class LayerRTI extends Layer {
 	imageUrl(url, plane) {
 		let path = this.url.substring(0, this.url.lastIndexOf('/') + 1);
 		switch (this.layout.type) {
-			case 'image': return path + plane + '.jpg'; break;
+			case 'image': return path + plane + '.' + (this.layout.suffix || 'jpg'); break;
 			case 'google': return path + plane; break;
 			case 'deepzoom': return path + plane + '.dzi'; break;
 			case 'tarzoom': return path + plane + '.tzi'; break;
